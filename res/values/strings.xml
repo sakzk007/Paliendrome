@@ -3,6 +3,8 @@
 
     <string name="app_name">Paliiendrome</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+     <string name="etHint">Enter String</string>
+    <string name="chkTxt">check entered text Paliendrome or not!</string>
+    <string name="btnVerifyTxt">Check</string>
 
 </resources>

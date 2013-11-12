@@ -3,12 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".MainActivity" >
 
     <EditText
         android:id="@+id/editText1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/etHint"
         android:singleLine="true"
         android:ems="10" >
         <requestFocus />
@@ -18,12 +20,12 @@
         android:id="@+id/checkBox1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        android:text="@string/chkTxt" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check" />
+        android:text="@string/btnVerifyTxt" />
 
 </LinearLayout>

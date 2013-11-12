@@ -6,14 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 import android.app.Activity;
 
 public class MainActivity extends Activity {
 
-	Button btnCheck;
-	EditText etText;
-	CheckBox chkBox;
-	AlertDialogManager alrt;
+	private Button btnCheck;
+	private EditText etText;
+	private CheckBox chkBox;
+	private AlertDialogManager alrt;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				// Check whether the checkbox is check or not
+				// Check whether the check-box is checked or not
 				Log.d("Clicked", "True");
 				if (chkBox.isChecked() == true) {
 					// Show alert
@@ -37,20 +37,27 @@ public class MainActivity extends Activity {
 			private void showAlertByChecking() {
 				StringBuffer txt = new StringBuffer();
 				String t1 = etText.getText().toString().trim();
-				Log.d("String", t1);
 				txt.append(t1);
-				if (txt.length() != 0 || txt != null) {
-					String t2 = txt.reverse().toString();
-					if (t1.equalsIgnoreCase(t2)) {
-						Log.d("Paliendrome", "True");
+				// Checking entered Text is whether empty
+				if (t1.length() != 0 && t1 != null) {
+					Log.d("Paliendrome String", t1);
+					if (alrt == null) {
+						Log.d("Alert Dialog Object", "Empty");
 						alrt = new AlertDialogManager();
-						alrt.showAlertDialog(MainActivity.this,
-								"checking", t2+" is Paliendrome", true);
 					}
-					else{
-						Log.d("Paliendrome", "False");
+					if (t1.equalsIgnoreCase(txt.reverse().toString())) {
+						Log.d("Paliendrome", "True-");
+
+						alrt.showAlertDialog(MainActivity.this, "checking", t1
+								+ " is Paliendrome", true);
+					} else {
+						alrt.showAlertDialog(MainActivity.this, "checking", t1
+								+ " is not Paliendrome", true);
 					}
 
+				} else {
+					Toast.makeText(getApplicationContext(), "Field is Empty!",
+							Toast.LENGTH_SHORT).show();
 				}
 
 			}
@@ -58,7 +65,6 @@ public class MainActivity extends Activity {
 	}
 
 	private void initVars() {
-		// TODO Auto-generated method stub
 		btnCheck = (Button) findViewById(R.id.button1);
 		etText = (EditText) findViewById(R.id.editText1);
 		chkBox = (CheckBox) findViewById(R.id.checkBox1);
