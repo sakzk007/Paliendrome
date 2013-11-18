@@ -1,4 +1,5 @@
 Paliendrome
 ===========
 
-**This application Checking entered string is whether paliendrome or not if the checkbox is checked!.**
+**This application checking whether the entered string is paliendrome or not if the checkbox is checked!.**
+-----------------------------------------------------------------------------------------------------------
